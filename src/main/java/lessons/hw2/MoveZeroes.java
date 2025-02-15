@@ -3,7 +3,10 @@ package lessons.hw2;
 /**
  * Class to operates arrays.
  */
-public class MoveZeroes {
+public final class MoveZeroes {
+
+  private MoveZeroes() {
+  }
 
   /**
    * Moves zeroes to the end of an array.

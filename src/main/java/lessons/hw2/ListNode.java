@@ -1,19 +1,23 @@
 package lessons.hw2;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  * Class to operate with list nodes.
  */
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class ListNode {
-  int val;
-  ListNode next = null;
+  private int val;
+  private ListNode next = null;
 
   ListNode(int val) {
     this.val = val;
-  }
-
-  ListNode(int val, ListNode next) {
-    this.val = val;
-    this.next = next;
   }
 
   /**
@@ -27,25 +31,25 @@ public class ListNode {
       return null;
     }
 
-    ListNode current = new ListNode(head.val);
+    ListNode current = new ListNode(head.getVal());
 
-    if (head.next == null) {
+    if (head.getNext() == null) {
       return current;
     }
 
-    ListNode reverse = reverseList(head.next);
+    ListNode reverse = reverseList(head.getNext());
 
-    if (reverse.next == null) {
-      reverse.next = current;
+    if (reverse.getNext() == null) {
+      reverse.setNext(current);
       return reverse;
     }
 
-    ListNode last = reverse.next;
-    while (last.next != null) {
-      last = last.next;
+    ListNode last = reverse.getNext();
+    while (last.getNext() != null) {
+      last = last.getNext();
     }
 
-    last.next = current;
+    last.setNext(current);
 
     return reverse;
   }
@@ -56,9 +60,9 @@ public class ListNode {
    * @param head Head of list node.
    */
   public static void print(ListNode head) {
-    System.out.println(head.val);
-    if (head.next != null) {
-      print(head.next);
+    System.out.println(head.getVal());
+    if (head.getNext() != null) {
+      print(head.getNext());
     }
   }
 

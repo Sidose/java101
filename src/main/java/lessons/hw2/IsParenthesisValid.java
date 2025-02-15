@@ -7,7 +7,10 @@ import java.util.Stack;
 /**
  * Checks if parenthesis string is valid.
  */
-public class IsParenthesisValid {
+public final class IsParenthesisValid {
+
+  private IsParenthesisValid() {
+  }
 
   /**
    * Checks if a string of parenthesis is valid.
@@ -25,9 +28,12 @@ public class IsParenthesisValid {
     }
 
     Map<Character, Character> pairs = new HashMap<Character, Character>();
-    pairs.put('(', ')');
     pairs.put('{', '}');
+
     pairs.put('[', ']');
+
+    pairs.put('(', ')');
+
     Stack<Character> deck = new Stack<>();
     char[] chars = str.toCharArray();
     for (int i = 0; i < chars.length; i++) {
