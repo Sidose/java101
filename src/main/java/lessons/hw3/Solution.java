@@ -3,7 +3,9 @@ package lessons.hw3;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution {
+public final class Solution {
+
+  private Solution() { }
 
   public static void main(String[] args) {
     List<Grade> johnGrades = List.of(
