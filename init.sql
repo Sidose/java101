@@ -1,13 +1,5 @@
-CREATE SCHEMA IF NOT EXISTS `users_storage`;
+CREATE SCHEMA IF NOT EXISTS `liquibase`;
 
-USE `users_storage`;
+USE `liquibase`;
 
-CREATE TABLE IF NOT EXISTS users
-(
-    id    BIGINT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(255),
-    phone_number VARCHAR(255),
-    password VARCHAR(255)
-);
-
-GRANT ALL PRIVILEGES ON users_storage.* TO 'user'@'%';
+GRANT ALL PRIVILEGES ON liquibase.* TO 'koins'@'%';
