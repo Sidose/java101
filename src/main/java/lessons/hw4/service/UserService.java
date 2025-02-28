@@ -2,6 +2,7 @@ package lessons.hw4.service;
 
 import lessons.hw4.dto.UserRegistrationDto;
 import lessons.hw4.dto.UserResponseDto;
+import lessons.hw4.exception.ValidationException;
 
 /**
  * Manage users.
@@ -14,7 +15,7 @@ public interface UserService {
    * @param user User registration object.
    * @return Registered user object.
    */
-  UserResponseDto registerUser(UserRegistrationDto user);
+  UserResponseDto registerUser(UserRegistrationDto user) throws ValidationException;
 
   /**
    * Gets user by ID.

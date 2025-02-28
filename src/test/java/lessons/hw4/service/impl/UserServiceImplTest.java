@@ -2,6 +2,7 @@ package lessons.hw4.service.impl;
 
 import lessons.hw4.dto.UserRegistrationDto;
 import lessons.hw4.dto.UserResponseDto;
+import lessons.hw4.exception.ValidationException;
 import lessons.hw4.model.User;
 import lessons.hw4.repository.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -25,7 +26,7 @@ class UserServiceImplTest {
   private static UserServiceImpl userService;
 
   @Test
-  void registerUser() {
+  void registerUser() throws ValidationException {
     Mockito.when(userRepository.save(Mockito.any(User.class)))
       .thenReturn(new User(
           1L,

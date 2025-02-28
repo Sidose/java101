@@ -1,6 +1,7 @@
 package lessons.hw4.util;
 
 import lessons.hw4.dto.UserRegistrationDto;
+import lessons.hw4.exception.ValidationException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,27 +17,27 @@ public final class UserValidator {
    *
    * @param user User to check.
    */
-  public static void checkUser(UserRegistrationDto user) {
+  public static void checkUser(UserRegistrationDto user) throws ValidationException {
 
     Pattern patternEmail = Pattern.compile(EMAIL_REGEX);
     Matcher matcher = patternEmail.matcher(user.getEmail());
     if (!matcher.matches()) {
-      throw new RuntimeException("Email is invalid.");
+      throw new ValidationException("Email is invalid.");
     }
 
     if (!user.getPhoneNumber().isEmpty()) {
       Pattern patternPhone = Pattern.compile(PHONE_REGEX);
       if (!patternPhone.matcher(user.getPhoneNumber()).matches()) {
-        throw new RuntimeException("Phone is invalid.");
+        throw new ValidationException("Phone is invalid.");
       }
     }
 
     if (user.getPassword().isEmpty()) {
-      throw new RuntimeException("Password is empty.");
+      throw new ValidationException("Password is empty.");
     }
 
     if (!user.getPassword().equals(user.getRepeatPassword())) {
-      throw new RuntimeException("Password didn't match repeat password.");
+      throw new ValidationException("Password didn't match repeat password.");
     }
   }
 

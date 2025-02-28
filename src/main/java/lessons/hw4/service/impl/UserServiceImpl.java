@@ -2,6 +2,7 @@ package lessons.hw4.service.impl;
 
 import lessons.hw4.dto.UserRegistrationDto;
 import lessons.hw4.dto.UserResponseDto;
+import lessons.hw4.exception.ValidationException;
 import lessons.hw4.model.User;
 import lessons.hw4.repository.UserRepository;
 import lessons.hw4.service.UserService;
@@ -27,7 +28,7 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public UserResponseDto registerUser(UserRegistrationDto user) {
+  public UserResponseDto registerUser(UserRegistrationDto user) throws ValidationException {
     UserValidator.checkUser(user);
 
     User userToSave = new User();
