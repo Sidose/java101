@@ -1,6 +1,7 @@
 package lessons.hw4.util;
 
 import lessons.hw4.dto.UserRegistrationDto;
+import lessons.hw4.exception.ValidationException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,7 +57,7 @@ class UserValidatorTest {
   }
 
   @Test
-  void checkUser_Ok() {
+  void checkUser_Ok() throws ValidationException {
     UserRegistrationDto user = new UserRegistrationDto();
     user.setEmail("mike@mail.com");
     user.setPhoneNumber("+380123456789");
